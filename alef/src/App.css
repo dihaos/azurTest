@@ -1,0 +1,75 @@
+.navbar{
+  height: 76px;
+  width: 100%;
+  position: relative;
+  border-bottom:solid ;
+}
+
+.links{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 20px;
+}
+
+#link1{
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+
+}
+#link2{
+  margin-left: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.me{
+  position: absolute;
+  width: 616px;
+  height: 166px;
+  left: 50%;
+  top: 106px;
+  transform: translateX(-50%);
+}
+
+.previewMe{
+  position: absolute;
+  width: 616px;
+  height: 166px;
+  left: 50%;
+  top: 106px;
+  transform: translateX(-50%);
+}
+
+#logo{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.children{
+  position: absolute;
+  width: 616px;
+  height: 166px;
+  left: 50%;
+  top: 350px;
+  transform: translateX(-50%);
+}
+
+.previewChildren{
+  position: absolute;
+  width: 616px;
+  height: 166px;
+  left: 50%;
+  top: 250px;
+  transform: translateX(-50%);
+}
+
+#addButton{
+  position:absolute;
+  right: 0;
+  top: 30px;
+}
