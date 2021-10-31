@@ -73,3 +73,10 @@
   right: 0;
   top: 30px;
 }
+
+.child{
+  font-weight: bold;
+  display: table;
+  background-color: #dad8d8;
+  padding: 10px;
+}

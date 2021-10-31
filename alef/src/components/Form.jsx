@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { setData } from "../store/data";
 
 function mapstatetoprops(state) {
     return {
@@ -7,9 +8,12 @@ function mapstatetoprops(state) {
     }
 }
 
-function mapdispatchtoprops (dispatch){
-
+function mapdispatchtoprops(dispatch) {
+    return {
+        setDataActions: (data) => dispatch(setData(data))
+    }
 }
+
 class Form extends React.Component {
     constructor(props) {
         super(props);
@@ -27,7 +31,7 @@ class Form extends React.Component {
 
     addChild() {
         let data = this.state.data
-        this.state.data.children = [...this.state.data.children, { id: Date.now(), nameChild: '', ageChild: '' }]
+        this.state.data.children = [...this.state.data.children, { nameChild: '', ageChild: '' }]
         this.setState({ data })
 
     }
@@ -54,12 +58,14 @@ class Form extends React.Component {
     }
 
     saveButton() {
-        let data = this.state.data
-
+        let data = { ... this.state.data }
+        this.props.setDataActions({ data })
     }
 
     render() {
+        console.log(this.state.data)
         console.log(this.props.data)
+
         return (
             <>
                 <div className='me'>
@@ -73,7 +79,7 @@ class Form extends React.Component {
                     <h2>Дети (макс. 5)</h2>
                     <button disabled={this.state.data.children.length === 5} id='addButton' onClick={this.addChild}>+ Добавить ребенка</button>
                     {this.state.data.children.map((child, i) =>
-                        <p>
+                        <p key={i}>
                             Имя
                             <input value={child.nameChild} name='nameChild' id={i} onInput={this.handleInput} />
                             Возраст
@@ -89,4 +95,4 @@ class Form extends React.Component {
     }
 }
 
-export default connect(mapstatetoprops)(Form)
+export default connect(mapstatetoprops, mapdispatchtoprops)(Form)

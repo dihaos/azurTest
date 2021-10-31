@@ -7,5 +7,11 @@ const defaultState = {
 }
 
 export const dataReducer = (state = defaultState, action) => {
-    return { ...state }
+    switch (action.type) {
+        case 'SET_DATA':
+            return action.payload
+        default:
+            return state
+
+    }
 }
